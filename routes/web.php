@@ -11,14 +11,25 @@
 |
 */
 
+use App\Movie;
+
 Route::get('/', function () {
-    return view('welcome');
+
+	$movies = Movie::all();
+
+	return view('welcome')->with('peliculas', $movies);
 });
 
 
-Route::get('peliculas', 'PeliculasController@index');
+Route::get('actors', 'ActorController@list');
 
+Route::get('new-movie', 'MovieController@create');
 
-Route::get('create-movie', 'PeliculasController@create');
+Route::post('new-movie', 'MovieController@store');
 
-Route::post('create-movie', 'PeliculasController@store');
+Route::get('update-movie/{id}', 'MovieController@edit');
+
+Route::put('update-movie/{id}', 'MovieController@update');
+
+Route::get('delete-movie/{id}', 'MovieController@delete');
+Route::delete('delete-movie/{id}', 'MovieController@destroy');

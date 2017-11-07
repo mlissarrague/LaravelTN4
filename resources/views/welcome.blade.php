@@ -82,6 +82,14 @@
                     Laravel
                 </div>
 
+                <ul>
+                    @foreach($peliculas as $pelicula)
+
+                        <li>{{ $pelicula->id . ' ' . $pelicula->title }}</li>
+                    @endforeach
+                </ul>
+
+
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
