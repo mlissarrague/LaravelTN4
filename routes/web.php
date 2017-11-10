@@ -21,6 +21,9 @@ Route::get('/', function () {
 });
 
 
+Route::get('movie/view/{id}', 'MovieController@view');
+
+
 Route::get('actors', 'ActorController@list');
 
 Route::get('new-movie', 'MovieController@create');
@@ -33,3 +36,12 @@ Route::put('update-movie/{id}', 'MovieController@update');
 
 Route::get('delete-movie/{id}', 'MovieController@delete');
 Route::delete('delete-movie/{id}', 'MovieController@destroy');
+
+Route::get('movies', 'MovieController@index');
+
+Route::get('actors', 'ActorController@index');
+
+
+Route::get('avatar', 'AvatarController@create');
+
+Route::post('avatar-upload', 'AvatarController@store');

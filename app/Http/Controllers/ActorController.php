@@ -7,12 +7,11 @@ use App\Actor;
 
 class ActorController extends Controller
 {
-    public function list()
+    public function index()
     {
 
-    	dd(request()->test);
+    	$list = Actor::paginate(5);
 
-    	$list = Actor::all();
 
     	return view('actors-view')
     		->with('actores_lista', $list);

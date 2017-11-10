@@ -7,6 +7,28 @@ use App\Movie;
 
 class MovieController extends Controller
 {
+    public function index()
+    {
+
+        $movies = Movie::paginate(4);
+
+        if (empty($movies->all())) {
+            abort(404);
+        }
+
+        return view('movies-list', [
+            'peliculas' => $movies
+        ]);
+    }
+
+    public function view()
+    {
+        return view('movie', [
+            'movie' => Movie::find(request()->id)
+        ]);
+    }
+
+
     public function create()
     {
     	return view('form');
